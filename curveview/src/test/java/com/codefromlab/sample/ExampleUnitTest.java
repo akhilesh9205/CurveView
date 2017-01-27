@@ -1,4 +1,4 @@
-package com.codefromlab.curveview;
+package com.codefromlab.sample;
 
 import org.junit.Test;
 

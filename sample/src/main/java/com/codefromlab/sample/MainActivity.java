@@ -1,4 +1,4 @@
-package com.codefromlab.curveview;
+package com.codefromlab.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
