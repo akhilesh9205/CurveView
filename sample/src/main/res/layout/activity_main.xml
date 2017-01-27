@@ -13,8 +13,9 @@
 
     <com.codefromlab.curveview.CurveView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#ccc"
+        android:layout_height="20dp"
         android:layout_centerInParent="true"
-        app:exampleString="Hello, CurveView" />
+        app:border_color="#48b35b"
+        app:border_width="4dp"
+        />
 </RelativeLayout>

@@ -1,8 +1,7 @@
 <resources>
     <declare-styleable name="CurveView">
-        <attr name="exampleString" format="string" />
-        <attr name="exampleDimension" format="dimension" />
-        <attr name="exampleColor" format="color" />
-        <attr name="exampleDrawable" format="color|reference" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="curve_color" format="color" />
     </declare-styleable>
 </resources>
