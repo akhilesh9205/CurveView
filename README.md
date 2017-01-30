@@ -1,9 +1,9 @@
 ### CurveView
 An Android library for creating a Curve Like in screenshots.
  
-![Curve at Top](/screenshot/curve_top.png)
+![Curve at Top](/screenshot/curve_top.png)       ![Curve at Bottom](/screenshot/curve_bottom.png)
 
-![Curve at Bottom](/screenshot/curve_bottom.png)
+
 
 ## Custom Attr
  * There are four attributes for customizing View.
