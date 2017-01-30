@@ -19,7 +19,12 @@ public class CurveView extends View {
     private float mBorderWidth = 4;
     private int mBorderColor = Color.BLACK;
     private int mCurveColor = Color.WHITE;
+    private int mCurveGravity = CurveGravity.TOP;
 
+    public static class CurveGravity{
+        public static final int TOP = 0;
+        public static final int BOTTOM = 1;
+    }
 
     public CurveView(Context context) {
         super(context);
@@ -43,6 +48,7 @@ public class CurveView extends View {
         mBorderColor = a.getColor(R.styleable.CurveView_border_color, mBorderColor);
         mCurveColor = a.getColor(R.styleable.CurveView_curve_color, mCurveColor);
         mBorderWidth = a.getDimension(R.styleable.CurveView_border_width, mBorderWidth);
+        mCurveGravity = a.getInt(R.styleable.CurveView_curve_gravity, CurveGravity.TOP);
         a.recycle();
 
         mCurvePaint = new Paint();
@@ -83,12 +89,39 @@ public class CurveView extends View {
         double heightSquare = Math.pow(contentHeight, 2.0f);
         float r = (float) ((widthSquare / 4.0f) + heightSquare) / (2.0f * contentHeight);
 
-        // draw curve
-        canvas.drawCircle(contentWidth / 2.0f, r, r, mCurvePaint);
+        if (mCurveGravity == CurveGravity.TOP) {
+            // draw curve
+            canvas.drawCircle(contentWidth / 2.0f, r, r, mCurvePaint);
 
-        // draw curve border
-        canvas.drawCircle(contentWidth / 2.0f, r, r - (mBorderWidth / 2.0f), mBorderPaint);
+            // draw curve border
+            canvas.drawCircle(contentWidth / 2.0f, r, r - (mBorderWidth / 2.0f), mBorderPaint);
+        } else if (mCurveGravity == CurveGravity.BOTTOM) {
 
+            // draw curve
+            canvas.drawCircle(contentWidth / 2.0f, -(r - contentHeight), r, mCurvePaint);
+
+            // draw curve border
+            canvas.drawCircle(contentWidth / 2.0f, -(r - contentHeight), r - (mBorderWidth / 2.0f), mBorderPaint);
+        }else{
+            // draw curve
+            canvas.drawCircle(contentWidth / 2.0f, r, r, mCurvePaint);
+
+            // draw curve border
+            canvas.drawCircle(contentWidth / 2.0f, r, r - (mBorderWidth / 2.0f), mBorderPaint);
+        }
+
+
+
+
+    }
+
+    public int getCurveGravity() {
+        return mCurveGravity;
+    }
+
+    public void setCurveGravity(int mCurveGravity) {
+        this.mCurveGravity = mCurveGravity;
+        invalidateTextPaintAndMeasurements();
     }
 
     public float getBorderWidth() {
